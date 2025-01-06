@@ -150,9 +150,27 @@
         flex-direction: column;
       }
     }
+
+    .dark-mode {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f5f5f5;           /* Light text */
+    }
+
+    /* If you want specific styling for links in dark mode */
+    .dark-mode a {
+    color: #63b3ed; /* A shade of light blue */
+    }
+
+    .dark-mode header, 
+    .dark-mode .resume-container {
+    background-color: #2c2c2c; /* Slightly lighter dark gray */
+    }
+
   </style>
 </head>
+
 <body>
+<button id="darkModeToggle">Toggle Dark Mode</button>
 
   <div class="resume-container">
 
@@ -311,5 +329,26 @@
       minDate: "today"
     });
   </script>
+  <script>
+    // On page load, check localStorage for dark mode setting
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark-mode') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+  
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+  
+      // Save the current theme to localStorage
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        localStorage.removeItem('theme');
+      }
+    });
+  </script>  
 </body>
 </html>
