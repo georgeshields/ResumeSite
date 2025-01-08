@@ -169,6 +169,27 @@
   </style>
 </head>
 
+<style>
+    ul {
+      margin: 0;
+      padding: 2rem;
+      list-style: none; /* remove default bullets */
+    }
+    li {
+      position: relative; 
+      margin-left: 1.5rem; 
+      margin-bottom: 0.5rem;
+    }
+    li::before {
+      /* Manually insert a bullet (•) */
+      content: "•";
+      position: absolute;
+      left: -1.5rem; 
+      /* same magnitude as li margin-left, but negative 
+         so the bullet sits to the left of the text */
+    }
+  </style>
+
 <body>
   <div class="resume-container">
     <!-- HEADER -->
