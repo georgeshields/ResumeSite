@@ -7,4 +7,4 @@ So far the project just consists of an index.html file and a projects.html file.
 
 Please feel free to use this project as a template for you own personal website.
 
-Testing to see who makes this commit.*
+Testing to see who makes this commit.
