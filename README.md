@@ -6,5 +6,3 @@ As I continue working on this project, I plan to expand it out into a more sophi
 So far the project just consists of an index.html file and a projects.html file. Will soon update the project with js files and/or react files for making the site more dynamic. Still drawing/designing the UI at the moment.
 
 Please feel free to use this project as a template for you own personal website.
-
-Testing to see who makes this commit.
