@@ -6,3 +6,6 @@ As I continue working on this project, I plan to expand it out into a more sophi
 So far the project just consists of an index.html file and a projects.html file. Will soon update the project with js files and/or react files for making the site more dynamic. Still drawing/designing the UI at the moment.
 
 Please feel free to use this project as a template for you own personal website.
+
+# AI Chatbot Feature
+As of January 2025, I am in the middle of writing functionality to allow users to chat with an LLM that can answer questions on my behalf regarding my experience, education, and skills. I am currently trying to use the OpenAI API to help make this feature happen, and I am hoping at some point I can use a custom LLM in its place in the future.
