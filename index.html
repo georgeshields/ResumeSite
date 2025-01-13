@@ -166,6 +166,43 @@
     background-color: #2c2c2c; /* Slightly lighter dark gray */
     }
 
+    .burger-menu {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .nav-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu a {
+      color: #fff;
+      font-size: 1.5em;
+      margin: 10px 0;
+      text-decoration: none;
+    }
+
   </style>
 </head>
 
@@ -190,7 +227,19 @@
     }
   </style>
 
+
 <body>
+
+  <button class="burger-menu" id="burger-menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="nav-menu" id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="ChatUI.html">Chat</a>
+    <!-- Add more links as needed -->
+  </div>
+  
   <div class="resume-container">
     <!-- HEADER -->
     <header>
@@ -426,5 +475,14 @@
     }
   });
   </script>  
+
+<script>
+  const burgerMenu = document.getElementById('burger-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  burgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
