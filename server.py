@@ -1,11 +1,15 @@
 import os
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import openai
 
-# Set your OpenAI key (preferably via environment variable)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Ensure the OpenAI API key is set
+openai.api_key = os.getenv('OPENAI_API_KEY')
+if not openai.api_key:
+    raise ValueError("OPENAI_API_KEY environment variable is not set")
 
 app = Flask(__name__, static_folder='.', static_url_path='')  
+CORS(app)
 # Explanation:
 #   static_folder='.'       tells Flask that our current directory is "static"
 #   static_url_path=''      means serve files at "/"
@@ -17,38 +21,22 @@ def serve_html():
 
 @app.route("/chat", methods=["POST"])
 def chat():
+    data = request.get_json()
+    user_message = data.get('message', '')
+
+    if not user_message:
+        return jsonify({'reply': 'No message provided'}), 400
+
     try:
-        data = request.get_json()
-        user_message = data.get("message", "")
-
-        # Basic conversation setup
-        messages = [
-            {
-                "role": "system",
-                "content": (
-                    "You are a helpful, professional version of George. "
-                    "Answer questions about his background, experience, and projects. "
-                    "Keep answers concise and relevant."
-                )
-            },
-            {
-                "role": "user",
-                "content": user_message
-            }
-        ]
-
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messages
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=user_message,
+            max_tokens=150
         )
-
-        assistant_reply = response["choices"][0]["message"]["content"]
-        return jsonify({"reply": assistant_reply})
-    
+        reply = response.choices[0].text.strip()
+        return jsonify({'reply': reply})
     except Exception as e:
-        print(e)
-        return jsonify({"error": str(e)}), 500
+        return (jsonify({'reply': f'Error: {str(e)}'}), 500)
 
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(debug=True)
