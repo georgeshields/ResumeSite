@@ -462,27 +462,30 @@
   darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const icon = darkModeToggle.querySelector('i');
+    const burgerMenu = document.getElementById('burger-menu');
 
     // Toggle between sun and moon icons
     if (document.body.classList.contains('dark-mode')) {
       icon.classList.remove('fa-sun');
       icon.classList.add('fa-moon');
       localStorage.setItem('theme', 'dark-mode');
+      burgerMenu.style.color = '#fff'; // Set burger menu color to white in dark mode
     } else {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
       localStorage.removeItem('theme');
+      burgerMenu.style.color = '#333'; // Set burger menu color to default in light mode
     }
   });
   </script>  
 
-<script>
-  const burgerMenu = document.getElementById('burger-menu');
-  const navMenu = document.getElementById('nav-menu');
+  <script>
+    const burgerMenu = document.getElementById('burger-menu');
+    const navMenu = document.getElementById('nav-menu');
 
-  burgerMenu.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-</script>
+    burgerMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
