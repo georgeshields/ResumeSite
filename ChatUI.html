@@ -98,12 +98,39 @@
     .input-area button:hover {
       background-color: #0056b3;
     }
+
+    .dark-mode {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f5f5f5;           /* Light text */
+    }
+
+    /* If you want specific styling for links in dark mode */
+    .dark-mode a {
+    color: #63b3ed; /* A shade of light blue */
+    }
+
+    .dark-mode header, 
+    .dark-mode .resume-container {
+    background-color: #2c2c2c; /* Slightly lighter dark gray */
+    }
   </style>
 </head>
 <body>
 
   <div class="chat-container">
     <header>
+      <button 
+            id="darkModeToggle"
+            style="
+                background: transparent; 
+                border: none; 
+                cursor: pointer; 
+                font-size: 1.5rem; 
+                color: inherit;
+            "
+            >
+            <i class="fas fa-sun"></i>
+        </button>
       <h1>Chat with LLM (Local)</h1>
       <p>Ask questions about my experience, projects, or anything else.</p>
     </header>
@@ -169,5 +196,39 @@
       chatMessages.scrollTop = chatMessages.scrollHeight; // auto-scroll
     }
   </script>
+
+<script>
+  const darkModeToggle = document.getElementById('darkModeToggle');
+
+// Optional: Load user's saved theme preference
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark-mode') {
+    document.body.classList.add('dark-mode');
+    // Adjust icon to moon if we're in dark mode
+    darkModeToggle.querySelector('i').classList.remove('fa-sun');
+    darkModeToggle.querySelector('i').classList.add('fa-moon');
+  }
+});
+
+darkModeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  const icon = darkModeToggle.querySelector('i');
+  const burgerMenu = document.getElementById('burger-menu');
+
+  // Toggle between sun and moon icons
+  if (document.body.classList.contains('dark-mode')) {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+    localStorage.setItem('theme', 'dark-mode');
+    burgerMenu.style.color = '#fff'; // Set burger menu color to white in dark mode
+  } else {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+    localStorage.removeItem('theme');
+    burgerMenu.style.color = '#333'; // Set burger menu color to default in light mode
+  }
+});
+</script>  
 </body>
 </html>
