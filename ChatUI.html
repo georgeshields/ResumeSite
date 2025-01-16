@@ -113,6 +113,42 @@
     .dark-mode .resume-container {
     background-color: #2c2c2c; /* Slightly lighter dark gray */
     }
+
+    /* When .dark-mode is on the <body>, these rules apply */
+    .dark-mode .chat-container {
+      background-color: #2c2c2c;  /* Dark background for container */
+      color: #f5f5f5;            /* Light text inside the container */
+      border: 1px solid #444;    /* Darker border, if desired */
+    }
+
+    .dark-mode #chatMessages {
+      background-color: #3c3c3c; /* Darker background for the messages panel */
+      border: 1px solid #555;    /* Adjust border color */
+      color: #f5f5f5;            /* Ensure text is still readable */
+    }
+
+    .dark-mode .message.assistant-message {
+      background-color: #4a4a4a; /* Slightly lighter gray for the assistant bubble */
+    }
+
+    .dark-mode .message.user-message {
+      /* You could keep the user bubble color the same or pick a different dark-friendly color */
+      /* Example: tinted blue for user in dark mode */
+      background-color: #0056b3; 
+    }
+
+    .dark-mode .input-area input {
+      background-color: #4a4a4a; /* Darker input field */
+      color: #f5f5f5;
+      border: 1px solid #555;    /* Dark border */
+    }
+
+    .dark-mode .input-area button {
+      background-color: #444;    /* Dark button background */
+      border: none;
+      color: #fff;
+    }
+
   </style>
 </head>
 <body>
