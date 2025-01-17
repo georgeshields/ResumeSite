@@ -58,23 +58,43 @@
       margin-bottom: 1rem;
       background: #fdfdfd;
     }
+    /* 1) A wrapper that forces each message onto a new line */
+    .message-row {
+      display: flex;
+      width: 100%;
+      margin-bottom: 1rem; /* spacing between rows */
+    }
+
+    /* Assistant messages go to the left */
+    .message-row.assistant {
+      justify-content: flex-start;
+    }
+
+    /* User messages go to the right */
+    .message-row.user {
+      justify-content: flex-end;
+    }
+
+    /* 2) The actual bubble */
     .message {
-      margin-bottom: 1rem;
-      width: 80%;
-      word-wrap: break-word;
+      display: inline-block;    /* allow bubble to shrink/grow around text */
+      max-width: 70%;           /* prevent bubble from getting too wide */
       padding: 0.5rem 0.75rem;
+      word-wrap: break-word;    /* wrap long words/URLs */
       border-radius: 6px;
     }
+
+    /* Colors for each role, as before */
     .user-message {
-      margin-left: auto;
-      text-align: right;
       background-color: #007bff;
       color: #fff;
     }
+
     .assistant-message {
-      margin-right: auto;
-      background-color: #ececec;
+      background-color: #4a4a4a; /* or your chosen color in dark mode */
+      color: #f5f5f5;
     }
+
     .input-area {
       display: flex;
       gap: 0.5rem;
@@ -274,12 +294,30 @@
     }
 
     function addMessageToUI(text, className) {
-      const div = document.createElement('div');
-      div.className = `message ${className}`;
-      div.textContent = text;
-      chatMessages.appendChild(div);
-      chatMessages.scrollTop = chatMessages.scrollHeight; // auto-scroll
+      // 1) Create the row container
+      const rowDiv = document.createElement('div');
+      
+      // If className includes 'user-message', make this row user-themed
+      // Otherwise, it’s assistant-themed
+      if (className.includes('user-message')) {
+        rowDiv.className = 'message-row user';
+      } else {
+        rowDiv.className = 'message-row assistant';
+      }
+
+      // 2) Create the bubble itself
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${className}`;
+      messageDiv.textContent = text;
+
+      // 3) Append bubble into row, row into chat container
+      rowDiv.appendChild(messageDiv);
+      chatMessages.appendChild(rowDiv);
+
+      // Auto-scroll
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
+
   </script>
 
 <script>
