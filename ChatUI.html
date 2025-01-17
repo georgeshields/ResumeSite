@@ -207,6 +207,41 @@
       text-decoration: underline;
     }
 
+    /* Example for typing indicator bubble */
+    .typing-indicator {
+      display: inline-block;
+      max-width: 70%;
+      padding: 0.5rem 0.75rem;
+      word-wrap: break-word;
+      border-radius: 6px;
+      background-color: #4a4a4a;
+      color: #f5f5f5;
+      margin-bottom: 1rem;
+      font-style: italic;
+      opacity: 0.8; /* Slightly translucent */
+    }
+
+    /* If you want a small “dots” animation */
+    .typing-indicator::after {
+      content: "✦";
+      animation: dots 1s steps(5, end) infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% {
+        color: rgba(255,255,255,0);
+      }
+      40% {
+        color: #f5f5f5;
+      }
+      60% {
+        color: rgba(255,255,255,0);
+      }
+      80%, 100% {
+        color: #f5f5f5;
+      }
+    }
+
 
   </style>
 </head>
@@ -272,26 +307,45 @@
       const message = userInput.value.trim();
       if (!message) return;
 
-      // Display user's message in the chat box
+      // 1) Display user's message
       addMessageToUI(message, 'user-message');
       userInput.value = '';
 
-      // Send POST request to the Flask backend
+      // 2) Show "Assistant is typing..." bubble
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'message assistant-message typing-indicator';
+
+      // Optionally wrap it in a row (if you use the row-based approach)
+      const rowDiv = document.createElement('div');
+      rowDiv.className = 'message-row assistant';
+      rowDiv.appendChild(typingBubble);
+      chatMessages.appendChild(rowDiv);
+
+      // auto-scroll down
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // 3) Make the POST request
       fetch(chatEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message })
       })
-      .then(res => res.json())
-      .then(data => {
-        const reply = data.reply || 'No response';
-        addMessageToUI(reply, 'assistant-message');
-      })
-      .catch(err => {
-        console.error(err);
-        addMessageToUI('Error: Could not reach the server.', 'assistant-message');
-      });
+        .then(res => res.json())
+        .then(data => {
+          // 4) Remove the typing bubble
+          rowDiv.removeChild(typingBubble);
+
+          // 5) Display the actual assistant response
+          const reply = data.reply || 'No response';
+          addMessageToUI(reply, 'assistant-message');
+        })
+        .catch(err => {
+          console.error(err);
+          rowDiv.removeChild(typingBubble);
+          addMessageToUI('Error: Could not reach the server.', 'assistant-message');
+        });
     }
+
 
     function addMessageToUI(text, className) {
       // 1) Create the row container
