@@ -1,3 +1,5 @@
+//DO NOT USE THIS FILE FOR RUNNING GPT
+
 const express = require('express');
 // require OpenAI from 'openai';
 const { Configuration, OpenAIApi } = require('openai');
