@@ -178,30 +178,32 @@
     }
 
     .nav-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 999;
+      display: none;            /* Hidden by default */
+      position: absolute;       /* Position it absolutely on the page */
+      top: 50px;                /* Adjust this so it’s slightly below the burger button */
+      left: 10px;               /* Align with the burger or wherever you want */
+      background: #fff;         /* White background for the dropdown */
+      border: 1px solid #ccc;   /* Subtle border */
+      border-radius: 4px;
+      padding: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional shadow */
     }
 
     .nav-menu.active {
-      display: flex;
+      display: block; /* Shows the dropdown */
     }
 
     .nav-menu a {
-      color: #fff;
-      font-size: 1.5em;
-      margin: 10px 0;
+      color: #333;
       text-decoration: none;
+      display: block;   
+      margin: 0.5rem 0;  /* Spacing between links */
     }
+
+    .nav-menu a:hover {
+      text-decoration: underline;
+    }
+
 
   </style>
 </head>
@@ -237,6 +239,7 @@
   <div class="nav-menu" id="nav-menu">
     <a href="index.html">Home</a>
     <a href="ChatUI.html">Chat</a>
+    <a href="projects.html">Projects</a>
     <!-- Add more links as needed -->
   </div>
   

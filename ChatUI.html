@@ -149,9 +149,58 @@
       color: #fff;
     }
 
+    .burger-menu {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .nav-menu {
+      display: none;            /* Hidden by default */
+      position: absolute;       /* Position it absolutely on the page */
+      top: 50px;                /* Adjust this so it’s slightly below the burger button */
+      left: 10px;               /* Align with the burger or wherever you want */
+      background: #fff;         /* White background for the dropdown */
+      border: 1px solid #ccc;   /* Subtle border */
+      border-radius: 4px;
+      padding: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional shadow */
+    }
+
+    .nav-menu.active {
+      display: block; /* Shows the dropdown */
+    }
+
+    .nav-menu a {
+      color: #333;
+      text-decoration: none;
+      display: block;   
+      margin: 0.5rem 0;  /* Spacing between links */
+    }
+
+    .nav-menu a:hover {
+      text-decoration: underline;
+    }
+
+
   </style>
 </head>
 <body>
+  <button class="burger-menu" id="burger-menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="nav-menu" id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="ChatUI.html">Chat</a>
+    <a href="projects.html">Projects</a>
+    <!-- Add more links as needed -->
+  </div>
 
   <div class="chat-container">
     <header>
@@ -266,5 +315,13 @@ darkModeToggle.addEventListener('click', () => {
   }
 });
 </script>  
+<script>
+  const burgerMenu = document.getElementById('burger-menu');
+  const navMenu = document.getElementById('nav-menu');
+
+  burgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
