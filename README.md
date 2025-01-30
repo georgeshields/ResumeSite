@@ -13,5 +13,5 @@ As of January 2025, I have written some functionality to allow users to chat wit
 # How to Use OpenAI API 
 Ensure python3 and flask are installed and that you keep your openai api key safe. Run <code>python3 server.py</code> and open the url in your browser to access locally. Only run the server.py program not the js files.
 
-# Plams to migrate to deepseek r1
+# Plans to Migrate to Deepseek R1
 
