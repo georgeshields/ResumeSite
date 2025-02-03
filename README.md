@@ -8,9 +8,11 @@ So far the project just consists of an index.html file and a projects.html file.
 Please feel free to use this project as a template for you own personal website. Make sure to acquire your own api key and to never share it. 
 
 # AI Chatbot Feature
-As of January 2025, I have written some functionality to allow users to chat with an LLM that can answer questions on my behalf regarding my experience, education, and skills. I am currently using the OpenAI API (using the chatgpt-3.5-turbo model) to help make this feature happen, and I am hoping at some point I can use a custom LLM in its place in the future. So far i have a brief message in the system content that describes who I am and my experiences. This page also supports darkmode.
+As of January 2025, I have written some functionality to allow users to chat with an LLM that can answer questions on my behalf regarding my experience, education, and skills. I am currently using the OpenAI API (using the chatgpt-3.5-turbo model) to help make this feature happen, and I am hoping at some point I can use a custom LLM in its place in the future (likely using deepseek r1). So far i have a brief message in the system content that describes who I am and my experiences. This page also supports darkmode.
 
 # How to Use OpenAI API 
 Ensure python3 and flask are installed and that you keep your openai api key safe. Run <code>python3 server.py</code> and open the url in your browser to access locally. Only run the server.py program not the js files.
 
+# Plans to Migrate to Deepseek R1
+Updates coming soon
 
