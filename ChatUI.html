@@ -1,5 +1,4 @@
 <!-- This is the page for the llm chatbot -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -296,8 +295,9 @@
     const sendBtn = document.getElementById('sendBtn');
 
     // Endpoint to your Flask server
-    const chatEndpoint = "http://127.0.0.1:5000/chat";
-
+    // const chatEndpoint = "http://127.0.0.1:5000/chat";
+    const chatEndpoint = "http://ec2-34-205-69-158.compute-1.amazonaws.com/";
+    
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keyup', (e) => {
       if (e.key === 'Enter') {
