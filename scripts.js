@@ -1,3 +1,4 @@
+//These are the scripts to use for the html file(S) in the project
 document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.getElementById('chat-messages');
   const userInput = document.getElementById('user-input');
