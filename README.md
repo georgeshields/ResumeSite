@@ -5,7 +5,7 @@ https://georgeshields.github.io/ResumeSite/
 
 This web page serves as a more detailed version of my resume. It contains more information than what is given in my PDF file that I submit to employers. I decided to make this because I wanted to be able to add more information about me that might interest potential employers and so that I can give recruiters/hiring managers an opportunity to reach out to me directly through this webpage if they desire. 
 
-So far the project just consists of an index.html file and a projects.html file. Will soon update the project with js files and/or react files for making the site more dynamic. Still drawing/designing the UI at the moment.
+So far the project consists of an index.html file and a projects.html file. Will soon update the project with js files and/or react files for making the site more dynamic. Still drawing/designing the UI at the moment.
 
 Please feel free to use this project as a template for you own personal website. Make sure to acquire your own api key and to never share it. 
 
