@@ -16,3 +16,5 @@ Ensure python3 and flask are installed and that you keep your openai api key saf
 
 # Plans to Migrate to Deepseek R1
 Updates coming soon.
+
+
