@@ -15,4 +15,4 @@ As of January 2025, I have written some functionality to allow users to chat wit
 Ensure python3 and flask are installed and that you keep your openai api key safe. Obtain an API key from your openai account and make sure not to share it with anyone (since im testing this project locally I use the <code>export OPENAI_API_KEY='this is where you paste your key'</code> command while in the project directory). Run <code>python3 server.py</code> and open the url in your browser to access locally. Only run the server.py program not the js files.
 
 # Plans to Migrate to Deepseek R1
-Updates coming soon.
+Updates coming soon. 
