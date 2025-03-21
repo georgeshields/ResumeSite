@@ -1,6 +1,7 @@
 # George Shields' Resume 
 
 ***LINK TO VIEW PROJECT HERE:*** https://georgeshields.github.io/ResumeSite/
+***LINK TO PROD:***
 
 This web page serves as a more detailed version of my resume. It contains more information than what is given in my PDF file that I submit to employers. I decided to make this because I wanted to be able to add more information about me that might interest potential employers and so that I can give recruiters/hiring managers an opportunity to reach out to me directly through this webpage if they desire. 
 
