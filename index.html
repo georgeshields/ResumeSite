@@ -462,7 +462,6 @@
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark-mode') {
       document.body.classList.add('dark-mode');
-      // Adjust icon to moon if we're in dark mode
       darkModeToggle.querySelector('i').classList.remove('fa-sun');
       darkModeToggle.querySelector('i').classList.add('fa-moon');
     }
